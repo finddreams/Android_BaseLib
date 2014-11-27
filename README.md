@@ -12,10 +12,12 @@ ToastManager  项目中Toast的统一管理
 ServiceManager  管理手机的各种系统服务，比如LocationManager，TelephonyManager，InputMethodManager，Vibrator，ConnectivityManager 
 等等， .........................................  
 
-（二）、封装了BaseActivity，BaseFragment，BasePage，对BaseAdapter进行封装，把所有的公共点进行封装，子类只需要继承即可  
+（二）、封装了BaseActivity，BaseFragment，BasePage，对BaseAdapter进行封装，把所有的公共点进行封装，子类只需要继承即可 
+
 （三）万能的ViewHolder   可以省去每次都需要在Adapter类中写一个静态的ViewHolder问题，实现代码的重用性。 
 
 （四）集成了很多的自定义View  
+
 比如项目常用到的顶部栏，直接封装成了TopBarView，只需要在布局文件中引入即可； 
 RollViewPager 可以自动滚动的ViewPager，带有标题，和用于指示的小圆点。 
 ProgressWheel 自定义的进度条，
@@ -28,6 +30,7 @@ ScrollListView  解决ListView嵌套到ScrollView中只显示一行的问题
 （五）CrashHandler 用于异常崩溃处理  当程序发生未捕获异常时，由该类来接管程序并记录发送错误报告。把错误信息保存在sd卡中，然后上传异常信息到服务器，便于程序员对异常的处理。
 
 （六）集成了常用到的开源框架 
+
 ViewPageIndicator  常用到滑动导航的开源框架，可以很方便的做到网易新闻客户端Tab标签滑动导航的功能；
 
 Pulltorefreshview   下拉刷新可以说是每个项目中都必须用到的吧，这个自然不用多说； 
