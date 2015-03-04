@@ -13,7 +13,7 @@ Android_BaseLib
    
    5.加入了很多项目中常用的开源项目，方便使用。比如：
    <br>
-   ViewPageIndicator，      导航栏，很多应用中都需要使用到
+        ViewPageIndicator，      导航栏，很多应用中都需要使用到
     <br>
    Pulltorefreshview，      下拉刷新，支持各种ListView已经GridView的下拉
     <br>
