@@ -1,18 +1,42 @@
 Android_BaseLib
 ===============
 
-这是一个可用于Android快速开发的框架，集成了很多项目中通用的东西，免去重复造轮子的麻烦，直接下载来了，修改一下就可以做为基础的框架进行开发，提高开发速度，适合当前移动互联网时代敏捷快速开发的节奏。
+  这是一个可用于Android快速开发的框架，集成了很多项目中通用的东西，免去重复造轮子的麻烦，直接下载来了，修改一下就可以做为基础的框架进行开发，提高开发速度，适合当前移动互联网时代敏捷快速开发的节奏。
+
+  这是一个用于Android快速开发的框架，主要是在以往的项目开发中，收集到的常用的功能：
+ 
+   1.常用到的工具类；
+   2.BaseActivity，BaseFragment，还有BaseView的封装，以便于对ViewPage中的View进行分别的管理，符合Java的封 装思想。
+ 
+   3.对BaseAdapter进行封装成MyBaseAdapter，引入BaseViewHolder，是个万能的ViewHolder；
+   4.很多常用的自定义View，CustomToast，SlideButton（滑动按钮），RollViewPager（自动滚动的ViewPage广告）。。。。。
+   
+   5.加入了很多项目中常用的开源项目，方便使用。比如：
+   
+   ViewPageIndicator，      导航栏，很多应用中都需要使用到
+   Pulltorefreshview，      下拉刷新，支持各种ListView已经GridView的下拉
+   Gson，					谷歌官方的解析json格式的库
+   fastjson,                阿里巴巴公司出品的解析json格式的库
+   android-async-http，     异步网络框架
+   Zxing，                  二维码扫描，项目中的名字是core
+   Universal-image-loader， 强大的异步加载网络图片，防止OOM
+   xUtils,                  国内出名的快速开发框架
+   nineoldandroids-2.4.0,   在Android2.X上兼容的动画库
+   volley,                  谷歌官方的访问网络的框架
+   EventBus,                简化Android组件间通信库
+   Butterknife              依赖注入框架，让你从findViewById中解放出来
 
 (一)、集成了项目常用到工具类
-AppManager， CommonUtils， 常用的工具类封装 
-DeviceInfoUtil 获得设备相关的信息，IMEI，设备的蓝牙，和SD卡是否可用。 
-LogManager  项目Log的统一管理 
-Screenshot 可以用于截图 
-ToastManager  项目中Toast的统一管理 
-ServiceManager  管理手机的各种系统服务，比如LocationManager，TelephonyManager，InputMethodManager，Vibrator，ConnectivityManager 
-等等， .........................................  
+      AppManager， CommonUtils， 常用的工具类封装 
+      DeviceInfoUtil 获得设备相关的信息，IMEI，设备的蓝牙，和SD卡是否可用。 
+      LogManager  项目Log的统一管理 
+      Screenshot 可以用于截图 
+      ToastManager  项目中Toast的统一管理 
+      ServiceManager  管理手机的各种系统服务，比如LocationManager，TelephonyManager，InputMethodManager，Vibrator，ConnectivityManager 
+      等等， .........................................  
 
-（二）、封装了BaseActivity，BaseFragment，BasePage，对BaseAdapter进行封装，把所有的公共点进行封装，子类只需要继承即可 
+（二）、封装了BaseActivity，BaseFragment，BasePage，对BaseAdapter进行封装，
+         把所有的公共点进行封装，子类只需要继承即可 
 
 （三）万能的ViewHolder   可以省去每次都需要在Adapter类中写一个静态的ViewHolder问题，实现代码的重用性。 
 
