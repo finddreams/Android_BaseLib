@@ -11,3 +11,7 @@ local.properties
 proguard/
 /ic_launcher-web.png
 /.classpath
+/.settings
+/.classpath
+/proguard-project.txt
+/project.properties
