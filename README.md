@@ -12,18 +12,29 @@ Android_BaseLib
    4.很多常用的自定义View，CustomToast，SlideButton（滑动按钮），RollViewPager（自动滚动的ViewPage广告）。。。。。
    
    5.加入了很多项目中常用的开源项目，方便使用。比如：
-   
+   <br>
    ViewPageIndicator，      导航栏，很多应用中都需要使用到
+    <br>
    Pulltorefreshview，      下拉刷新，支持各种ListView已经GridView的下拉
+    <br>
    Gson，					谷歌官方的解析json格式的库
+    <br>
    fastjson,                阿里巴巴公司出品的解析json格式的库
+    <br>
    android-async-http，     异步网络框架
+    <br>
    Zxing，                  二维码扫描，项目中的名字是core
+    <br>
    Universal-image-loader， 强大的异步加载网络图片，防止OOM
+    <br>
    xUtils,                  国内出名的快速开发框架
+    <br>
    nineoldandroids-2.4.0,   在Android2.X上兼容的动画库
+    <br>
    volley,                  谷歌官方的访问网络的框架
+    <br>
    EventBus,                简化Android组件间通信库
+    <br>
    Butterknife              依赖注入框架，让你从findViewById中解放出来
 
 (一)、集成了项目常用到工具类
