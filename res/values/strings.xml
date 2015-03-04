@@ -8,5 +8,5 @@
     <string name="top_model">模特</string>
    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
    <string name="more">更多</string>
-
+<string name="scan">扫描二维码</string>
 </resources>

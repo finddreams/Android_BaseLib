@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.util.Vector;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
@@ -25,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.finddreams.baselib.R;
+import com.finddreams.baselib.utils.AppManager;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.zxing.barcode.CameraManager;
@@ -32,14 +30,13 @@ import com.zxing.barcode.CaptureActivityHandler;
 import com.zxing.barcode.InactivityTimer;
 import com.zxing.barcode.ViewfinderView;
 
+
 /**
- * @Description:这是二维码的窗口Activity，以startActivityForResult打开,在返回结果中获得
+ * @Description: 二维码扫描界面，已经封装好；以startActivityForResult打开,在返回结果中获得二维码结果
  * @author http://blog.csdn.net/finddreams
  */ 
-public class CaptureActivity extends Activity implements Callback,
-		OnClickListener {
-	public static String RESULT="result";
-	public static String BITMAP="bitmap";
+public class CaptureActivity extends Activity implements Callback ,OnClickListener{
+
 	private CaptureActivityHandler handler;
 	private ViewfinderView viewfinderView;
 	private boolean hasSurface;
@@ -50,40 +47,39 @@ public class CaptureActivity extends Activity implements Callback,
 	private boolean playBeep;
 	private static final float BEEP_VOLUME = 0.90f;
 	private boolean vibrate;
-
+	
 	private TextView capture_back;
-	private TextView capture_more;
-
+	private TextView top_title;
+	
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.camera);
-
 		CameraManager.init(getApplication());
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
-
-		capture_back = (TextView) findViewById(R.id.activity_sao_back);
+		capture_back=(TextView)findViewById(R.id.top_back_tv);
 		capture_back.setOnClickListener(this);
-		capture_more = (TextView) findViewById(R.id.activity_sao_more);
-		capture_more.setOnClickListener(this);
-
+		top_title=(TextView)findViewById(R.id.top_title);
+		top_title.setOnClickListener(this);
+		top_title.setText(R.string.scan);
 		hasSurface = false;
 		inactivityTimer = new InactivityTimer(this);
-		
+		AppManager.getAppManager().addActivity(this);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		// ToastUtil.toastshow(CaptureActivity.this, "执行了了");
+		//ToastUtil.toastshow(CaptureActivity.this, "ִ������");
 		SurfaceView surfaceView = (SurfaceView) findViewById(R.id.preview_view);
 		SurfaceHolder surfaceHolder = surfaceView.getHolder();
 		if (hasSurface) {
 			initCamera(surfaceHolder);
 		} else {
-
+			
 			surfaceHolder.addCallback(this);
 			surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		}
@@ -97,9 +93,12 @@ public class CaptureActivity extends Activity implements Callback,
 		}
 		initBeepSound();
 		vibrate = true;
-
+		
+		
 	}
 
+	
+	
 	@Override
 	protected void onPause() {
 		super.onPause();
@@ -115,41 +114,35 @@ public class CaptureActivity extends Activity implements Callback,
 		inactivityTimer.shutdown();
 		super.onDestroy();
 	}
-
+	
 	/**
 	 * Handler scan result
-	 * 
 	 * @param result
 	 * @param barcode
 	 */
 	public void handleDecode(Result result, Bitmap barcode) {
 		inactivityTimer.onActivity();
 		playBeepSoundAndVibrate();
-
+	
 		final String resultString = result.getText();
-
+		
+		
 		if (resultString.equals("")) {
-			Toast.makeText(CaptureActivity.this, "扫描失败或者二维码无内容!",
-					Toast.LENGTH_SHORT).show();
-		}else if (resultString.startsWith("http://")) {  //说明是网址
-			/*Intent intent2 = new Intent(CaptureActivity.this,
-					IsHttpDialog.class);
-			Bundle bundle2 = new Bundle();
-			bundle2.putString("Url", resultString);
-			intent2.putExtras(bundle2);
-			startActivity(intent2);*/
-
-		}else {
-			Intent resultIntent = new Intent();
-			Bundle bundle = new Bundle();
-			bundle.putString(RESULT, resultString);
-			bundle.putParcelable(BITMAP, barcode);
-			resultIntent.putExtras(bundle);
-			this.setResult(RESULT_OK, resultIntent);
+			Toast.makeText(CaptureActivity.this, "扫描失败或者二维码无内容!", Toast.LENGTH_SHORT).show();
 		}
-		CaptureActivity.this.finish();
-	}
-
+		
+//		else if (resultString.contains("http://q.cha4.net/index.php?app=member&act=getUserInfoApi")) {
+//			
+//			    Intent intent3 = new Intent(CaptureActivity.this,OtherUserDetailActivity.class);
+//				Bundle bundle3 = new Bundle();			
+//				bundle3.putString("url", resultString);
+//				intent3.putExtras(bundle3);
+//				startActivity(intent3);	
+//			
+//		}
+		}
+	
+	
 	private void initCamera(SurfaceHolder surfaceHolder) {
 		try {
 			CameraManager.get().openDriver(surfaceHolder);
@@ -243,20 +236,28 @@ public class CaptureActivity extends Activity implements Callback,
 		}
 	};
 
+    
+	
+
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.activity_sao_back:
-			this.finish();
+		case R.id.top_back_tv:
+		
+			AppManager.getAppManager().finishActivity();
 			break;
 
-		case R.id.activity_sao_more:
-			break;
-
+			
 		default:
 			break;
 		}
 	}
 
+
+
+	 
+
+	
 }
