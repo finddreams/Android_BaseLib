@@ -65,6 +65,8 @@ public class ToastManager {
 			toast = new CustomToast(context, text.toString(),Toast.LENGTH_LONG);
 			toast.show();
 		}
+
+		
 	}
 
 

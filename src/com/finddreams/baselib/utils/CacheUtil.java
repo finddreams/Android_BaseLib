@@ -10,9 +10,6 @@ import android.content.Context;
 
 /**
  * 缓存工具
- * 
- * @author ving
- *
  */
 public class CacheUtil {
 	public final static int MAX_FAILCOUNT = 3; // 最大失败次数，超过即不再重新抓取

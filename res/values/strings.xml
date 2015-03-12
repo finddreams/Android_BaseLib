@@ -2,11 +2,13 @@
 
     <string name="app_name">BaseLib</string>
     <string name="back">返回</string>
-     <string name="paizhao">拍照</string>
+    <string name="paizhao">拍照</string>
     <string name="get_photo_choose">从手机相册选取</string>
     <string name="cancel">取消</string>
     <string name="top_model">模特</string>
-   <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
-   <string name="more">更多</string>
-<string name="scan">扫描二维码</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="more">更多</string>
+    <string name="scan">扫描二维码</string>
+    <string name="no_net">沒有网络</string>
+
 </resources>

@@ -20,7 +20,7 @@ import com.finddreams.baselib.R;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.util.LogUtils;
 /**
- * @Description:自动播放的广告条，viewpager，带标题和滚动的小圆点
+ * @Description:自动播放的广告条，viewpager，带标题和滚动的小圆点，有点击事件
  * @author http://blog.csdn.net/finddreams
  */ 
 public class RollViewPager extends ViewPager {

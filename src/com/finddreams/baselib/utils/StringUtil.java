@@ -2,6 +2,7 @@ package com.finddreams.baselib.utils;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Matcher;
@@ -60,7 +61,32 @@ public class StringUtil {
         ByteArrayInputStream stream = new ByteArrayInputStream(str.getBytes());
         return stream;
     }
+    /**
+	 * 输入流转字符串
+	 * @param is
+	 * @return
+	 */
+	public static String convertStreamToString(InputStream is) {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+		StringBuilder sb = new StringBuilder();
 
+		String line = null;
+		try {
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				is.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return sb.toString();
+	}
 	/**
      * 字符串替换
      * @param line
