@@ -8,11 +8,9 @@ import android.widget.ProgressBar;
 
 import com.finddreams.baselib.R;
 
-
 /**
- * @Description:带进度条的WebView
- * @author http://blog.csdn.net/finddreams
- */ 
+ * 带进度条的WebView
+ */
 @SuppressWarnings("deprecation")
 public class ProgressWebView extends WebView {
 

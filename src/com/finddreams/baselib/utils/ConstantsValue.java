@@ -11,5 +11,7 @@ public class ConstantsValue {
     public static final String IMAGE_APP_PATH = Environment.getExternalStorageDirectory() + IMAGE_APP_PATH_DIR;
 	
     public static final boolean DEBUG = true;
+	public static final String INTENT_URL = "url";
+	public static final String INTENT_TITLE = "title";
 
 }
